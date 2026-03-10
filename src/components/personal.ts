@@ -11,9 +11,9 @@ const games: Game[] = [
   { title: 'Elden Ring', genre: 'SOULS-LIKE', cover: 'https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg' },
   { title: 'Marathon', genre: 'EXTRACTION', cover: 'https://cdn.akamai.steamstatic.com/steam/apps/3065800/header.jpg' },
   { title: 'ARC Raiders', genre: 'CO-OP PVE', cover: 'https://cdn.akamai.steamstatic.com/steam/apps/1808500/header.jpg' },
-  { title: 'Escape from Tarkov', genre: 'TACTICAL FPS', cover: '/tarkov_cover.png' },
+  { title: 'Escape from Tarkov', genre: 'TACTICAL FPS', cover: `${import.meta.env.BASE_URL}tarkov_cover.png` },
   { title: 'Apex Legends', genre: 'BATTLE ROYALE', cover: 'https://cdn.akamai.steamstatic.com/steam/apps/1172470/header.jpg' },
-  { title: 'Minecraft', genre: 'SANDBOX', cover: '/minecraft_cover.png' },
+  { title: 'Minecraft', genre: 'SANDBOX', cover: `${import.meta.env.BASE_URL}minecraft_cover.png` },
   { title: 'The Outlast Trials', genre: 'HORROR CO-OP', cover: 'https://cdn.akamai.steamstatic.com/steam/apps/1304930/header.jpg' },
 ];
 
