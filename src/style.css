@@ -23,13 +23,13 @@
 
   /* Typography */
   --font-mono: 'Source Code Pro', 'Fira Code', 'Courier New', monospace;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 2.5rem;
+  --font-size-xs: clamp(0.65rem, 1.5vw, 0.75rem);
+  --font-size-sm: clamp(0.75rem, 1.8vw, 0.875rem);
+  --font-size-base: clamp(0.875rem, 2vw, 1rem);
+  --font-size-lg: clamp(1rem, 2.5vw, 1.25rem);
+  --font-size-xl: clamp(1.1rem, 3vw, 1.5rem);
+  --font-size-2xl: clamp(1.3rem, 4vw, 2rem);
+  --font-size-3xl: clamp(1.5rem, 5vw, 2.5rem);
   --font-size-hero: clamp(2rem, 5vw, 4rem);
 
   /* Spacing */
@@ -42,7 +42,7 @@
   --space-3xl: 5rem;
 
   /* Layout */
-  --max-width: 800px;
+  --max-width: min(90%, 900px);
   --nav-height: 40px;
   --border-radius: 0px;
 
@@ -141,7 +141,7 @@ button {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 clamp(0.5rem, 4%, 2rem);
 }
 
 #app {
@@ -185,7 +185,7 @@ button {
 }
 
 .section {
-  padding: var(--space-3xl) 0;
+  padding: clamp(2rem, 6vw, 5rem) 0;
 }
 
 /* Navbar */
@@ -558,7 +558,7 @@ button {
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: var(--space-xl);
 }
 
@@ -907,31 +907,67 @@ button {
   }
 }
 
-/* ── Responsive ─────────────────────────── */
+/* Responsive (fluid) */
 
-/* fluid section headers */
+/* overflow prevention */
 .section-header pre,
-.hero-ascii {
-  overflow-x: hidden;
-  font-size: clamp(0.55rem, 1.8vw, 0.75rem);
-}
-
+.hero-ascii,
 .contact-ascii pre {
   overflow-x: hidden;
 }
 
-/* large tablet / small desktop */
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+/* games grid: auto-fill — flows naturally at any width */
+.games-grid {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+}
+
+.game-card img,
+.game-card>div:first-child {
+  height: clamp(70px, 12vw, 110px);
+}
+
+/* about & contact: auto-fit 2→1 col */
+.about-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.contact-container {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+/* contact ascii fluid size */
+.contact-ascii pre {
+  font-size: clamp(0.35rem, 1.2vw, 0.75rem) !important;
+}
+
+/* hero cta: wrap naturally */
+.hero-cta {
+  flex-wrap: wrap;
+}
+
+/* music player: wrap naturally */
+.music-player-bar {
+  flex-wrap: wrap;
+}
+
+/* skill labels: wrap at small sizes */
+@media (max-width: 500px) {
+  .skill-label {
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .games-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    justify-content: center;
   }
 }
 
-/* tablet */
+/* hamburger menu toggle — only structural breakpoint */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -953,32 +989,6 @@ button {
     display: flex;
   }
 
-  .container {
-    padding: 0 var(--space-md);
-  }
-
-  .about-grid,
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    padding: var(--space-md);
-  }
-
-  .games-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-
-  .game-card img,
-  .game-card>div:first-child {
-    height: 90px;
-  }
-
   .music-player-bar {
     flex-direction: column;
     align-items: stretch;
@@ -986,52 +996,5 @@ button {
 
   .music-track-info {
     text-align: center;
-  }
-
-  .contact-ascii pre {
-    font-size: 0.5rem !important;
-  }
-}
-
-/* phone */
-@media (max-width: 480px) {
-  body {
-    font-size: var(--font-size-xs);
-  }
-
-  .container {
-    padding: 0 var(--space-sm);
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    justify-content: center;
-    font-size: 0.65rem;
-  }
-
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .game-card img,
-  .game-card>div:first-child {
-    height: 70px;
-  }
-
-  .skill-label {
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .contact-ascii pre {
-    font-size: 0.4rem !important;
-  }
-
-  .footer {
-    font-size: 0.6rem;
   }
 }
