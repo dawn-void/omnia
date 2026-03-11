@@ -907,7 +907,31 @@ button {
   }
 }
 
-/* Responsive — Tablet */
+/* ── Responsive ─────────────────────────── */
+
+/* fluid section headers */
+.section-header pre,
+.hero-ascii {
+  overflow-x: hidden;
+  font-size: clamp(0.55rem, 1.8vw, 0.75rem);
+}
+
+.contact-ascii pre {
+  overflow-x: hidden;
+}
+
+/* large tablet / small desktop */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* tablet */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -929,6 +953,10 @@ button {
     display: flex;
   }
 
+  .container {
+    padding: 0 var(--space-md);
+  }
+
   .about-grid,
   .contact-container {
     grid-template-columns: 1fr;
@@ -942,28 +970,15 @@ button {
     padding: var(--space-md);
   }
 
-  .hero-glitch {
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 
-  .container {
-    padding: 0 var(--space-md);
-  }
-
-  /* Game grid — 3 cols on tablet */
   .game-card img,
   .game-card>div:first-child {
     height: 90px;
   }
 
-  /* ASCII art overflow prevention */
-  .section-header pre,
-  .hero-ascii {
-    overflow-x: hidden;
-    font-size: 1rem !important;
-  }
-
-  /* Music player — stack on tablet */
   .music-player-bar {
     flex-direction: column;
     align-items: stretch;
@@ -973,23 +988,13 @@ button {
     text-align: center;
   }
 
-  /* Games grid — 3 cols on tablet */
-  .games-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-
   .contact-ascii pre {
-    font-size: 0.45rem !important;
+    font-size: 0.5rem !important;
   }
-
 }
 
-/* Responsive — Phone */
+/* phone */
 @media (max-width: 480px) {
-  :root {
-    --nav-height: 40px;
-  }
-
   body {
     font-size: var(--font-size-xs);
   }
@@ -1008,38 +1013,24 @@ button {
     font-size: 0.65rem;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  .about-grid,
-  .contact-container {
-    grid-template-columns: 1fr;
+  .game-card img,
+  .game-card>div:first-child {
+    height: 70px;
   }
 
-  /* section headers — bigger on phone */
-  .section-header pre,
-  .hero-ascii {
-    font-size: 1rem !important;
-    overflow-x: hidden;
-  }
-
-  .contact-ascii pre {
-    font-size: 0.35rem !important;
-  }
-
-  /* Skill labels — stack */
   .skill-label {
     flex-direction: column;
     gap: 2px;
   }
 
-  /* Games grid — 2 cols on phone */
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .contact-ascii pre {
+    font-size: 0.4rem !important;
   }
 
-  /* Footer */
   .footer {
     font-size: 0.6rem;
   }
