@@ -64,6 +64,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -682,7 +683,7 @@ button {
   color: var(--color-text-bright);
   font-size: var(--font-size-xs);
   line-height: 1.2;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 /* Footer */
@@ -934,7 +935,7 @@ button {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .hero-content {
@@ -958,8 +959,8 @@ button {
   /* ASCII art overflow prevention */
   .section-header pre,
   .hero-ascii {
-    overflow-x: auto;
-    font-size: 0.55rem !important;
+    overflow-x: hidden;
+    font-size: 1rem !important;
   }
 
   /* Music player — stack on tablet */
@@ -980,6 +981,7 @@ button {
   .contact-ascii pre {
     font-size: 0.45rem !important;
   }
+
 }
 
 /* Responsive — Phone */
@@ -1015,11 +1017,11 @@ button {
     grid-template-columns: 1fr;
   }
 
-  /* ASCII art — smaller on phone */
+  /* section headers — bigger on phone */
   .section-header pre,
   .hero-ascii {
-    font-size: 0.4rem !important;
-    overflow-x: auto;
+    font-size: 1rem !important;
+    overflow-x: hidden;
   }
 
   .contact-ascii pre {

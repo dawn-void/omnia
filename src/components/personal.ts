@@ -45,8 +45,8 @@ export function renderPersonal(): string {
         <!-- Interests — warm and human -->
         <div class="fade-in-up" style="margin-bottom: var(--space-2xl);">
           <div style="border: 1px solid #333333; background: #050505; padding: var(--space-lg);">
-            <div style="color: #555555; font-size: var(--font-size-xs); margin-bottom: var(--space-md);">
-              ┌── INTERESTS.LOG ─────────────────────────────────────────────────┐
+            <div style="color: #555555; font-size: var(--font-size-xs); margin-bottom: var(--space-md); overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+              ┌── INTERESTS.LOG ────────────────┐
             </div>
 
             <div style="color: #999999; font-size: var(--font-size-sm); line-height: 1.8;">
@@ -72,7 +72,7 @@ export function renderPersonal(): string {
             </div>
 
             <div style="color: #555555; font-size: var(--font-size-xs); margin-top: var(--space-md);">
-              └─────────────────────────────────────────────────────────────────┘
+              └────────────────────────────────┘
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export function renderPersonal(): string {
         <!-- Games — visual grid -->
         <div class="fade-in-up">
           <div style="color: #555555; font-size: var(--font-size-xs); margin-bottom: var(--space-sm);">
-            ┌── GAMES.DB ──────────────────────────────────────────────────────┐
+            ┌── GAMES.DB ───────────────────────┐
           </div>
           <div style="color: #555555; font-size: var(--font-size-xs); margin-bottom: var(--space-md);">C:\\OMNIA\\PERSONAL> SELECT * FROM games ORDER BY rating DESC;</div>
           
@@ -117,7 +117,7 @@ export function renderPersonal(): string {
             ${games.length} rows returned. Query OK.
           </div>
           <div style="color: #555555; font-size: var(--font-size-xs); margin-top: var(--space-sm);">
-            └─────────────────────────────────────────────────────────────────┘
+            └───────────────────────────────────┘
           </div>
         </div>
 
